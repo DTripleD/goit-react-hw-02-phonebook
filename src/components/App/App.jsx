@@ -10,17 +10,8 @@ class App extends Component {
     name: '',
   };
 
-  addContact = ({ name, number }) => {
-      e.preventDefault();
-      const inputName = e.target.name.value;
-      this.setState((prevState) => {
-        const list = {...prevState.contacts}
-        list.push({
-          name: name,
-          number: number,
-        });
-        return { contacts: list };
-      });
+  addContact = (e) => {
+
   };
 
   render() {
