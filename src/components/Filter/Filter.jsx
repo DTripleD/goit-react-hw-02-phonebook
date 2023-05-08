@@ -1,4 +1,5 @@
 import { FilterForm, Input } from './Filter.styled';
+import PropTypes from "prop-types";
 
 const Filter = ({ changeFilter, value }) => (
   <FilterForm>
@@ -13,3 +14,8 @@ const Filter = ({ changeFilter, value }) => (
 );
 
 export default Filter;
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  changeFilter: PropTypes.func,
+}
