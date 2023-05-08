@@ -18,26 +18,18 @@ class App extends Component {
 
   addContact = ({ name, number }) => {
     const id = nanoid();
+    const isExist = this.state.contacts.some(
+      value => value.name.toLowerCase() === name.toLowerCase()
+    );
 
-    if (
-      this.state.contacts.some(
-        value => value.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
+    if (isExist) {
       alert(name + 'is already in contacts.');
-    } else {
-      this.setState(prevState => {
-        const list = [...prevState.contacts];
-
-        list.push({
-          id,
-          name,
-          number,
-        });
-
-        return { contacts: list };
-      });
+      return;
     }
+
+    this.setState(prevState => {
+      return { contacts: [...prevState.contacts, { id, name, number }] };
+    });
   };
 
   onDeleteContact = contactId => {

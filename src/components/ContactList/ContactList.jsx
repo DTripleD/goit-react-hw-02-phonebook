@@ -18,6 +18,6 @@ const ContactList = ({ filterElements, onDeleteContact }) => (
 export default ContactList;
 
 ContactList.propTypes = {
-  filterElements: PropTypes.func,
+  filterElements: PropTypes.array,
   onDeleteContact: PropTypes.func,
 }
