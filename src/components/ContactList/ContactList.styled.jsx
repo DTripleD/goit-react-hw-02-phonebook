@@ -24,7 +24,6 @@ export const Button = styled.button`
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
 
-
   color: #fff;
   cursor: pointer;
 
