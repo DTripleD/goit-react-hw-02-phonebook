@@ -1,9 +1,14 @@
 import { Component } from 'react';
 import { FormWrapper, Form, AddContact, Button } from './ContactForm.style';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
   state = {
+    name: '',
+    number: '',
+  };
+
+  basicState = {
     name: '',
     number: '',
   };
@@ -20,6 +25,7 @@ class ContactForm extends Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.addContact(this.state);
+            this.setState(this.basicState);
           }}
         >
           <AddContact>
@@ -58,4 +64,4 @@ export default ContactForm;
 
 ContactForm.propTypes = {
   addContact: PropTypes.func,
-}
+};
