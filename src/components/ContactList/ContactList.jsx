@@ -1,25 +1,17 @@
-import { Component } from 'react';
+import { Contact, Element, List, Button } from './ContactList.styled';
 
-class ContactList extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.filterElements === '' ?
-          this.props.contacts.map(({ name, id, number }) => {
-            return (
-              <li key={id}>
-                {name}: {number}
-              </li>
-            );
-          }) : this.props.contacts.filter(({ name, id, number }) => {
-            const filtered = this.props.filterElements === name;
-            return (<li key={id}>
-              {filtered}
-            </li>);
-          }) }
-      </ul>
-    );
-  }
-}
+const ContactList = ({ filterElements, onDeleteContact }) => (
+  <List>
+    {filterElements.map(({ name, id, number }) => (
+      <Element key={id}>
+        <Contact>{name}:</Contact>
+        <Contact> {number}</Contact>
+        <Button type="button" onClick={() => onDeleteContact(id)}>
+          Delete
+        </Button>
+      </Element>
+    ))}
+  </List>
+);
 
 export default ContactList;

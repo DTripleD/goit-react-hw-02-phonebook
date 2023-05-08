@@ -1,18 +1,10 @@
-import { Component } from 'react';
+import {FilterForm, Input} from "./Filter.styled"
 
-class Filter extends Component {
-  state = {
-    filter: '',
-  };
-
-  render() {
-    return (
-      <label>
-        Find contacts by name
-        <input type="text" onInput={this.props.filter} />
-      </label>
-    );
-  }
-}
+const Filter = ({changeFilter, value}) => (
+  <FilterForm>
+    Find contacts by name
+    <Input type="text" onChange={changeFilter} value={value} placeholder="Who are we looking for?"/>
+  </FilterForm>
+);
 
 export default Filter;

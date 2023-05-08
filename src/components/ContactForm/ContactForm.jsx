@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { FormWrapper, Form } from './ContactForm.style';
+import { FormWrapper, Form ,AddContact, Button} from './ContactForm.style';
 
 class ContactForm extends Component {
   state = {
@@ -21,7 +21,7 @@ class ContactForm extends Component {
             this.props.addContact(this.state);
           }}
         >
-          <label>
+          <AddContact>
             Name
             <input
               value={this.state.name}
@@ -32,9 +32,9 @@ class ContactForm extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
             />
-          </label>
+          </AddContact>
 
-          <label>
+          <AddContact>
             Number
             <input
               value={this.state.number}
@@ -45,8 +45,8 @@ class ContactForm extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-          </label>
-          <button type="submit">Add contact</button>
+          </AddContact>
+          <Button type="submit">Add contact</Button>
         </Form>
       </FormWrapper>
     );
