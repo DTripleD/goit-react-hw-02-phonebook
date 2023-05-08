@@ -1,5 +1,5 @@
 import { Contact, Element, List, Button } from './ContactList.styled';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const ContactList = ({ filterElements, onDeleteContact }) => (
   <List>
@@ -18,6 +18,12 @@ const ContactList = ({ filterElements, onDeleteContact }) => (
 export default ContactList;
 
 ContactList.propTypes = {
-  filterElements: PropTypes.array,
+  filterElements: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
   onDeleteContact: PropTypes.func,
-}
+};
