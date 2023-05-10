@@ -2,16 +2,13 @@ import { Component } from 'react';
 import { FormWrapper, Form, AddContact, Button } from './ContactForm.style';
 import PropTypes from 'prop-types';
 
-class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+const initialState = {
+  name: '',
+  number: '',
+};
 
-  basicState = {
-    name: '',
-    number: '',
-  };
+class ContactForm extends Component {
+  state = { ...initialState };
 
   onChangeInput = e => {
     const { name, value } = e.currentTarget;
@@ -25,7 +22,7 @@ class ContactForm extends Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.addContact(this.state);
-            this.setState(this.basicState);
+            this.setState(initialState);
           }}
         >
           <AddContact>
