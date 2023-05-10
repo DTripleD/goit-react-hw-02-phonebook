@@ -18,19 +18,6 @@ class App extends Component {
     filter: '',
   };
 
-  componentDidMount() {
-    const savedContacts = localStorage.getItem(LS_KEY);
-    if (savedContacts) {
-      this.setState({ contacts: JSON.parse(savedContacts) });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
-    }
-  }
-
   addContact = ({ name, number }) => {
     const id = nanoid();
     const isExist = this.state.contacts.some(
